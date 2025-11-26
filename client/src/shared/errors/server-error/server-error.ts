@@ -1,4 +1,4 @@
-import { APP_ID, Component, inject, signal } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiError } from '../../../types/error';
 
@@ -19,7 +19,7 @@ export class ServerError {
   }
 
   get topFrameOnly(): string {
-    if (!this.error?.details) return 'No details available';
+    if (!this.error?.details) return 'No Details Available.';
     
     // Split the text by new lines and take the first item
     const lines = this.error.details.split('\n');
