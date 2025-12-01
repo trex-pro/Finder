@@ -17,6 +17,12 @@
         },
         "@schematics/angular:interceptor": {
           "skipTests": true, "path": "src/core/interceptor"
+        },
+        "@schematics/angular:resolver": {
+          "skipTests": true, "path": "src"
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true, "path": "src/core/pipes"
         }
       },
       "root": "",
@@ -57,7 +63,13 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"

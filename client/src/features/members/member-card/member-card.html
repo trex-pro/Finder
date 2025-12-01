@@ -1,0 +1,13 @@
+@if (member(); as member) {
+    <div routerLink="/members/{{member.id}}" class="card hover:scale-105 transition-all duration-200">
+        <img src="{{member?.imageUrl || '/avatar.png'}}"
+        alt="{{member.userName}} Image" class="rounded-lg">
+        <div class="card-actions bg-linear-to-t from-black via-black/60 to-black/0 
+                    z-50 absolute bottom-0 w-full px-3 py-1 rounded-b-lg">
+            <div class="flex flex-col text-gray-100">
+                <span class="font-semibold">{{member.userName}}, {{member.dob | age}}</span>
+                <span class="text-sm">{{member.city}}</span>
+            </div>
+        </div>
+    </div>
+}

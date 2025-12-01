@@ -1,0 +1,15 @@
+@if (member(); as member) {
+    <div class="flex flex-col gap-3">
+        <div>{{member.description}}</div>
+        <div class="divider"></div>
+        <h3 class="text-2xl text-secondary">Timeline</h3>
+        <div class="flex gap-1">
+            <div class="font-semibold"> Last Active On: </div>
+            <span>{{member.lastActive | date: 'medium'}}</span>
+        </div>
+        <div class="flex gap-1">
+            <div class="font-semibold">Member Since: </div>
+            <span>{{member.created | date: 'longDate'}}</span>
+        </div>
+    </div>
+}
