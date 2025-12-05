@@ -1,9 +1,22 @@
-@if (photos$ | async; as photos) {
-    @if (photos.length > 0) {
-        <div class="grid grid-cols-4 auto-rows-min gap-2 p-5 overflow-auto">
-            @for (photo of photos; track photo.id) {
-                <img src="{{photo.url}}" alt="Member Photo" class="w-full rounded-lg">
-            }
-        </div>
-    }
+@if (!memberService.editMode()) {
+    @if (photos(); as photos) {
+        @if (photos.length > 0) {
+            <div class="grid grid-cols-4 auto-rows-min gap-2 p-5 overflow-auto">
+                @for (photo of photos; track photo.id) {
+                    <div class="relative">
+                        <img src="{{photo.url}}" alt="Member Photo" class="w-full rounded-lg">
+                        <app-star-button 
+                            [disabled]="photo.url === memberService.member()?.imageUrl"
+                            [selected]="photo.url === memberService.member()?.imageUrl"
+                            (clickEvent)="setMainPhoto(photo)"
+                        />
+                    </div>
+                }
+            </div>
+        } @else {
+            <p class="text-center text-gray-500">No Photos Available.</p>
+        }
+    }   
+} @else {
+    <app-image-upload (uploadFile)="onUploadImage($event)" [loading]="loading()"/>
 }
