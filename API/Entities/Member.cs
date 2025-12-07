@@ -19,6 +19,10 @@ public class Member
     // Navigation Property.
     [JsonIgnore]
     public List<Photo> Photos { get; set; } = [];
+    [JsonIgnore]
+    public List<Message> MessagesSent { get; set; } = [];
+    [JsonIgnore]
+    public List<Message> MessagesReceived { get; set; } = [];
     
     [JsonIgnore]
     [ForeignKey(nameof(Id))]

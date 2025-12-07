@@ -85,7 +85,7 @@ namespace API.Controllers
             if (member == null) return BadRequest("Member Required.");
 
             var photo = member.Photos.SingleOrDefault(x => x.Id == photoId);
-            if (photo == null || photo.Url == null) return BadRequest("Photo cannot be Deleted.");
+            if (photo == null ) return BadRequest("Photo cannot be Deleted.");
 
             if (photo.PublicId != null)
             {
