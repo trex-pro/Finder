@@ -1,3 +1,5 @@
+using CloudinaryDotNet.Actions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
@@ -26,5 +28,12 @@ public class BuggyController : BaseApiController
     public IActionResult GetServerError()
     {
         throw new Exception("Server Error.");
+    }
+
+    [Authorize(Roles="Admin")]
+    [HttpGet("admin-secret")]
+    public ActionResult<string> GetAdminSecret()
+    {
+        return Ok("Only Admin(s) Should See This.");
     }
 }
