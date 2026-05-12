@@ -185,7 +185,3 @@ dotnet ef database update
 ## Error handling
 
 `ExceptionMiddleware` wraps unhandled exceptions for consistent API error responses. `BuggyController` exposes intentional 400/401/404/500 responses for client testing.
-
-## License and contributing
-
-Add your preferred license and contribution guidelines if this repository is public or shared.
